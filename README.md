@@ -2,4 +2,8 @@
 Bitcoin Stock Price Prediction - Group Project 
 
 
-Team: VS
+Team members: 
+* Vincent
+* Julian 
+* Kirti
+* Juan
