@@ -1,0 +1,18 @@
+name: cryptofinance
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python
+  - pandas
+  - numpy
+  - matplotlib
+  - arrow
+  - pyarrow
+  - dask
+  - python-dotenv
+  - scikit-learn
+  - shap
+  - mlflow
+  - yfinance
+  - ipykernel
