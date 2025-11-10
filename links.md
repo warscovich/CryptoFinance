@@ -9,3 +9,8 @@
 - https://www.kaggle.com/datasets/mczielinski/bitcoin-historical-data/data
 - https://www.kaggle.com/datasets/oliviervha/crypto-news/data/code
 - https://github.com/soheilrahsaz/cryptoNewsDataset
+
+pip install -U mlflow openai
+%pip install -U mlflow openai
+pip install --upgrade mlflow databricks-sdk databricks-cli
+pip install databricks-sql-connecto 
