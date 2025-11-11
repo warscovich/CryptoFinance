@@ -31,7 +31,6 @@ This repository hosts the team project for the Data Sciences Institute (Universi
 ## Gathering Data
 1. **Historical Pricing** – Daily OHLCV Bitcoin prices (Nov 2020 – Nov 2025) from `data/raw/dataset.csv`.
 2. **Weekly On-chain Sentiment** – Curated dataset (`data/raw/weekly_on_chain_sentiment.csv`) derived from web-scraped on-chain analysis blogs. Each summary was scored as Bullish/Bearish using ChatGPT with advanced/few-shot prompting to standardize sentiment labels.
-3. **Technical References** – Supplementary research links captured in `links.md` to guide feature ideation and validation.
 
 ## Merging and Preparing Data
 * Converted raw files into a unified time series indexed by trading day.
@@ -66,21 +65,6 @@ This repository hosts the team project for the Data Sciences Institute (Universi
 * **How can you document the machine learning pipeline and model architecture for future reference?** – Version the notebooks alongside helper utilities, capture each training run with MLflow autologging on Databricks, and store scaler/estimator artifacts so that future contributors can trace parameters, metrics, and model summaries directly from the tracking UI.
 
 
-## Repository Structure
-```
-├── data/
-│   └── raw/
-│       ├── dataset.csv
-│       └── weekly_on_chain_sentiment.csv
-├── notebooks/
-│   ├── btc_price_prediction.ipynb
-│   └── mlflow_databricks.ipynb
-├── src/
-│   └── ... (utility code for feature engineering, modeling, and evaluation)
-├── environment.yaml
-└── README.md
-```
-
 ---
 
 ## Acknowledgements
@@ -91,6 +75,6 @@ This repository hosts the team project for the Data Sciences Institute (Universi
 
 * This project is presented for educational and research purposes only and does not constitute financial, investment, trading, or any other form of professional advice. The models, datasets, and analyses included in this repository are experimental and should not be relied upon to make financial decisions. You are solely responsible for any actions you take based on the information or tools provided here.
 
-Historical Bitcoin data was sourced from Perplexity Finance. While efforts were made to ensure data quality, no guarantees are provided regarding accuracy, completeness, or suitability for any purpose. The developers and contributors assume no liability for losses or damages arising from the use, interpretation, or application of this project.
+* Historical Bitcoin data was sourced from Perplexity Finance. While efforts were made to ensure data quality, no guarantees are provided regarding accuracy, completeness, or suitability for any purpose. The developers and contributors assume no liability for losses or damages arising from the use, interpretation, or application of this project.
 
 * Use discretion and consult a qualified financial professional before making investment decisions.
