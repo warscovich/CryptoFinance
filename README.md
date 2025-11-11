@@ -5,10 +5,105 @@ This repository hosts the team project for the Data Sciences Institute (Universi
 
 ---
 
-## Business Case
-* **Business Value** – Early identification of bullish or bearish sentiment supports better risk management, automated trading, and content scheduling by surfacing actionable signals instead of raw price movements.
+## Industry Context
 
-* **Stakeholders** – Individual investors, algorithmic traders, crypto research desks, and financial media outlets seeking objective guidance for volatile Bitcoin markets.
+Bitcoin and the broader cryptocurrency market are known for their extreme volatility, decentralized structure, and strong retail investor participation. Unlike equities or FX, crypto markets trade 24/7, are heavily influenced by online sentiment, and are more prone to speculative bubbles and sharp drawdowns. This makes traditional financial models less effective and creates opportunities for alternative modeling approaches that incorporate both price action and sentiment.
+
+In practice, machine learning models like this could support:
+- Retail investors seeking timing guidance for discretionary trades.
+- Content creators aiming to align publication schedules with market sentiment.
+- Quant teams prototyping directional signals to supplement automated strategies.
+- Research desks trying to frame narratives with evidence-based short-term forecasts.
+
+This model differs from equity forecasting in that it does not rely on fundamentals (e.g., earnings), focuses on next-day classification (not returns), and incorporates crowdsourced sentiment, which plays a disproportionately large role in crypto price moves.
+
+## Business Problem Clarification
+
+**Task Type**  
+Binary classification (not regression)
+
+**Target Variable**  
+Predict whether the next-day **closing price** of Bitcoin (BTC-USD) will be **higher or lower** than today’s close.  
+Target classes: **Bullish** (next close > today’s close) vs. **Bearish** (next close ≤ today’s close)
+
+**Prediction Horizon**  
+1 trading day (next-day directional movement)
+
+**Success Metric**  
+**Directional accuracy** – the percentage of predictions where the model correctly classifies the next-day price movement  
+Minimum threshold: **65% accuracy** on a chronologically held-out test set
+
+**Note**  
+We avoid the phrase “stock prediction,” as Bitcoin is not a stock.
+
+---
+
+## Data Sources and Documentation
+
+### 1. Price Data
+- **Source**: Perplexity Finance (via web exporting)
+- **Fields**: Daily Open, High, Low, Close, Volume (OHLCV)
+- **Asset**: BTC-USD
+- **Frequency**: Daily
+- **Time Range**: November 2020 – November 2025
+- **File**: `data/raw/dataset.csv`
+
+### 2. Sentiment Data
+- **Source**: Weekly blog posts from leading on-chain analytics sites (e.g., Glassnode)
+- **Extraction**: Web scraping scripts
+- **Processing**: GPT-5 prompted summarization + sentiment labeling (Bullish/Bearish)
+- **Format**: One sentiment label per week, forward-filled to each corresponding trading day
+- **File**: `data/raw/weekly_on_chain_sentiment.csv`
+
+---
+
+## Risks and Unknowns
+
+### Modeling Risks
+- Overfitting due to small or unstable training sets
+- Temporal leakage from improper splits or look-ahead bias
+- Regime changes invalidating past relationships (e.g., macro events, regulations)
+
+### Business Risks
+- Over-reliance on model output without considering broader context
+- Amplification of noise if used in high-frequency or automated settings
+- False confidence in signals due to class imbalance (e.g., bearish class dominance)
+
+### Ethical Risks
+- Retail investors misinterpreting probabilities as guarantees
+- Biased sentiment inputs due to echo chambers or influencer dominance
+
+**Mitigation Strategies**  
+- Clear documentation of limitations
+- Regular retraining
+- Monitoring for performance degradation
+- Human-in-the-loop deployment where applicable
+
+---
+
+## Data Cleaning and Exploration Plan
+
+### Cleaning Steps Taken
+- Removed duplicate timestamps and ensured chronological consistency
+- Validated numeric ranges (e.g., price > 0)
+- Forward-filled weekly sentiment labels
+- Dropped rows with missing or invalid values (e.g., during holidays or API gaps)
+- Initialized OBV seed with zero to compute consistent cumulative values
+
+### EDA Performed
+- Plotted daily closing price, log returns, and rolling volatility
+- Visualized extreme events (e.g., 2021 bull run, 2022 crash)
+- Examined distribution of returns to detect fat tails and volatility clustering
+- Analyzed alignment between sentiment and next-day returns (confusion matrix)
+- Assessed temporal drift in sentiment frequency and signal consistency
+
+### Team Responsibilities
+- **Kirti Vardhan**: Feature engineering and modeling experiments 
+- **Julian Bueno**: Feature engineering and modeling experiments 
+- **Juan Bueno**: Feature engineering and modeling experiments
+- **Vincent Van Schaik**: Technical development including sentiment scraping, labeling, feature engineering, data cleaning, EDA, modeling workflows, and MLFlow on Databricks inegration. 
+
+---
 
 ### Guiding Questions
 * **Who is the intended audience for your project?** – Retail investors, algorithmic traders, crypto analysts, and financial media seeking reliable insights.
@@ -57,7 +152,7 @@ This repository hosts the team project for the Data Sciences Institute (Universi
 ### Machine Learning Guiding Questions
 * **What are the specific objectives and success criteria for your machine learning model?** – The objective is to flag next-day price jumps of at least 1%; success is judged by hold-out accuracy, ROC-AUC, and class-level precision/recall recorded in the notebooks (e.g., XGBoost reached 0.7178 accuracy with ROC-AUC 0.5866 on the reserved test window, while Logistic Regression achieved 0.6963 accuracy).
 * **How can you select the most relevant features for training?** – The current workflow relies on domain-driven feature lists of spreads, momentum, and volatility indicators, then inspects model coefficients/feature importances logged through MLflow to decide which engineered metrics warrant retention.
-* **Are there any missing values or outliers that need to be addressed through preprocessing?** – Rolling calculations and the shifted target create leading NaNs that are removed with `dropna`, and the OBV seed is filled with zero; no additional outlier clipping is applied in the current experiments.
+* **Are there any missing values or outliers that need to be addressed through preprocessing?** – Rolling calculations and the shifted target create leading NaNs that are removed.
 * **Which machine learning algorithms are suitable for the problem domain?** – Baseline Logistic Regression, Random Forest, and XGBoost classifiers capture tabular signal interactions, while an LSTM sequence model ingests 10-day windows to learn temporal dependencies.
 * **What techniques are available to validate and tune the hyperparameters?** – Models are evaluated on a chronological 80/20 split with MLflow autologging so manual hyperparameter adjustments are tracked; the LSTM leverages a 20% validation split with early stopping to prevent overfitting, and Databricks experiments can be rerun with altered settings for comparative analysis.
 * **How should the data be split into training, validation, and test sets?** – Use `train_test_split` with `shuffle=False` to hold out the most recent 20% of observations for testing, and rely on the Keras `validation_split=0.2` argument during LSTM training to carve out an in-sample validation fold for early stopping.
