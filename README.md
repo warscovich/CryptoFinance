@@ -55,12 +55,17 @@ We avoid the phrase “stock prediction,” as Bitcoin is not a stock.
 - **Format**: One sentiment label per week, forward-filled to each corresponding trading day
 - **File**: `data/raw/weekly_on_chain_sentiment.csv`
 
+- **Source**: Daily Twitter
+- **Extraction**: Web scraping scripts
+- **Processing**: G
+- **Format**: One sentiment label per week, forward-filled to each corresponding trading day
+- **File**: `data/raw/weekly_on_chain_sentiment.csv`
 ---
 
 ## Risks and Unknowns
 
 ### Modeling Risks
-- Overfitting due to small or unstable training sets
+- Overfitting due to small or unstable training sets(Is really challenging to acquire up to date news for bitcoin).
 - Temporal leakage from improper splits or look-ahead bias
 - Regime changes invalidating past relationships (e.g., macro events, regulations)
 
@@ -96,6 +101,13 @@ We avoid the phrase “stock prediction,” as Bitcoin is not a stock.
 - Examined distribution of returns to detect fat tails and volatility clustering
 - Analyzed alignment between sentiment and next-day returns (confusion matrix)
 - Assessed temporal drift in sentiment frequency and signal consistency
+
+### Model Development
+- For our technical analysis we feature engineered 26 key technical indicators. In addition, we LabelEncoded sentiment classifier from GlassNode + GPT-5 Datasource.
+- Exploratory model work of different models using Deep Neural Networks, Linear regression and XGBoost Classifier.
+- Developed a multi-modal deep learning model that combines Natural Language Processing(NLP) with time-series analysis to predict price movement.
+  The model fuses sentiment analysis from financial news information with technical market indicators to generate binary classification predictions (bullish/bearish).
+
 
 ### Team Responsibilities
 - **Kirti Vardhan**: Feature engineering and modeling experiments 
