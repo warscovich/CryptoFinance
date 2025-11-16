@@ -110,26 +110,6 @@ We trained 6 exploratory models to establish a baseline and obtained the followi
 
 ### Model Experimentation Results
 
-# Model Experimentation Results
-
-## Performance Comparison Table
-
-| Model | Algorithm | Features | Probability Threshold | Accuracy | Recall (Bullish) |
-|-------|-----------|----------|----------------------|----------|------------------|
-| **1a** | LSTM | 20 | 0.40 | 0.53 | 0.44 |
-| **1b** | LSTM | 20 | 0.45 | 0.62 | 0.15 |
-| **2a** | LSTM | 41 | 0.20 | 0.57 | 0.25 |
-| **2b** | LSTM | 41 | 0.25 | 0.70 | 0.04 |
-| **3a** | LSTM | 32 | 0.30 | 0.59 | 0.26 |
-| **3b** | LSTM | 32 | 0.35 | 0.70 | 0.05 |
-| **4** | Random Forest | 59 | N/A | 0.70 | 0.00 |
-| **5** | Gradient Boosting | 59 | N/A | 0.76 | 0.10 |
-| **6** | FinBert+CNN | N/A | 33 | 0.59 | **0.41** | - |
-| **7** | Dual FinBert(CNN+Social Media) | N/A | 33 | 0.63 | 0.1 | - |
-
-### Analysis Summary
-# Model Experimentation Results
-
 ## Performance Comparison Table
 
 | Model | Algorithm | Features | Probability Threshold | Accuracy | Recall (Bullish) |
