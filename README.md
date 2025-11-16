@@ -135,7 +135,7 @@ Daily batch inference must complete within minutes and produce MLflow-tracked ar
 
 For our technical analysis, we feature-engineered 26 key technical indicators. In addition, we label-encoded sentiment classifications from GlassNode and GPT-5 data sources.
 All numerical features were standardized using StandardScaler to bring all values to a similar scale. This prevents bias toward features with larger magnitudes and improves model convergence.
-We trained 7 exploratory models to establish a baseline and obtained the following results. Please note that we focus on bullish recall due to the models' tendency to always predict bearish and inability to truly identify both probability classes:
+We trained 7 exploratory models to establish a baseline and obtained the following results:
 
 ### Model Experimentation Results
 
@@ -153,7 +153,7 @@ We trained 7 exploratory models to establish a baseline and obtained the followi
 | **5** | Gradient Boosting | 59 | N/A | **0.76** | 0.10 |
 | **6** | FinBERT + CNN | N/A | 0.33 | 0.59 | 0.41 |
 | **7** | FinBERT + CNN + Social Media | N/A | 0.33 | 0.63 | 0.10 |
-
+> ⚠️ Note: The team focused on bullish recall because models were biased toward predicting bearish, failing to distinguish between both classes
 ## Analysis Summary
 
 ### Accuracy vs. Recall Trade-off
