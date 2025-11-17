@@ -42,7 +42,6 @@ Daily batch inference must complete within minutes and produce MLflow-tracked ar
 
 ---
 ## Required Libraries
-## Requirements
 
 [![MLflow](https://img.shields.io/badge/MLflow-F4AA41?logo=MLflow&logoColor=black)](#)
 [![Pandas](https://img.shields.io/badge/Pandas-150458?logo=pandas&logoColor=fff)](#)
@@ -53,8 +52,11 @@ Daily batch inference must complete within minutes and produce MLflow-tracked ar
 [![Keras](https://img.shields.io/badge/Keras-D00000?logo=keras&logoColor=fff)](#)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-ff8f00?logo=tensorflow&logoColor=white)](#)
 
+### Install Dependencies
 
-
+```
+pip install -r requirements.txt
+```
 
 ## Data Sources and Documentation
 
