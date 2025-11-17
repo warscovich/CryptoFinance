@@ -41,6 +41,22 @@ We avoid the phrase “stock prediction,” as Bitcoin is not a stock.
 Daily batch inference must complete within minutes and produce MLflow-tracked artefacts deployable from Databricks.
 
 ---
+## Required Libraries
+
+[![MLflow](https://img.shields.io/badge/MLflow-F4AA41?logo=MLflow&logoColor=black)](#)
+[![Pandas](https://img.shields.io/badge/Pandas-150458?logo=pandas&logoColor=fff)](#)
+[![NumPy](https://img.shields.io/badge/NumPy-4DABCF?logo=numpy&logoColor=fff)](#)
+[![Matplotlib](https://custom-icon-badges.demolab.com/badge/Matplotlib-71D291?logo=matplotlib&logoColor=fff)](#)
+[![Google Colab](https://img.shields.io/badge/Google%20Colab-F9AB00?logo=googlecolab&logoColor=fff)](#)
+[![Scikit-learn](https://img.shields.io/badge/-scikit--learn-%23F7931E?logo=scikit-learn&logoColor=white)](#)
+[![Keras](https://img.shields.io/badge/Keras-D00000?logo=keras&logoColor=fff)](#)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-ff8f00?logo=tensorflow&logoColor=white)](#)
+
+### Install Dependencies
+
+```
+pip install -r requirements.txt
+```
 
 ## Data Sources and Documentation
 
@@ -244,7 +260,8 @@ We trained 7 exploratory models to establish a baseline and obtained the followi
 
 ---
 ## Team Members Reflection Videos
-Juan Bueno: https://youtu.be/NN7cLu31mZc
+* Juan Bueno: [Reflection](]https://youtu.be/NN7cLu31mZc)
+* Julian Bueno - [Reflection](https://youtu.be/AwxNpUw-MMU)
 
 ## Acknowledgements
 * Project completed by Juan Bueno, Julian Bueno, Kirti Vardhan and Vincent Van Schaik for the Data Sciences Institute (University of Toronto) Certificate team project requirement.
