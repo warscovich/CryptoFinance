@@ -260,7 +260,7 @@ We trained 7 exploratory models to establish a baseline and obtained the followi
 
 ---
 ## Team Members Reflection Videos
-* Juan Bueno: [Reflection](]https://youtu.be/NN7cLu31mZc)
+* Juan Bueno: [Reflection](https://youtu.be/NN7cLu31mZc)
 * Julian Bueno - [Reflection](https://youtu.be/AwxNpUw-MMU)
 
 ## Acknowledgements
