@@ -263,6 +263,7 @@ We trained 7 exploratory models to establish a baseline and obtained the followi
 * Juan Bueno: [Reflection](https://youtu.be/NN7cLu31mZc)
 * Julian Bueno: [Reflection](https://youtu.be/AwxNpUw-MMU)
 * Vincent Van Schaik: [Reflection](https://drive.google.com/file/d/18taF7tJP2bmqkMm9YE65V-n_wEsSrd1R/view?usp=drive_link)
+* Kirti Vardhan: [Reflection](https://drive.google.com/file/d/1fqIiMxrZoLqwwLzX47bUb99Rcf6_s0vr/view?usp=drive_link)
 
 
 ## Acknowledgements
